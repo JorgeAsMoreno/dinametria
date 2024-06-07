@@ -1,7 +1,7 @@
 // src/pages/api/coins.ts
 import { NextApiRequest, NextApiResponse } from "next";
 import { HttpStatusCode } from "../../../backend/models/HttpStatusCode";
-import CoinsService from "../../../backend/services/CoinGeckoService";
+import CoinGeckoService from "../../../backend/services/CoinGeckoService";
 import WebRequestError from "../../../backend/models/WebRequestError";
 
 const CoinsListEndpoint = async (
@@ -9,7 +9,7 @@ const CoinsListEndpoint = async (
   res: NextApiResponse
 ) => {
   try {
-    const trending = await CoinsService.getTrending()
+    const trending = await CoinGeckoService.getTrending()
     return res.status(HttpStatusCode.OK).json(trending)
   } catch (error) {
     const webRequestError = error as WebRequestError
