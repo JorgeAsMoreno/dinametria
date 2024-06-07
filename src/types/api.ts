@@ -78,3 +78,32 @@ export interface ITrending {
   h24_volume: string
   sparkline: string
 }
+
+export interface TrendingTypes {
+  coins_count: number
+  data: CategoryData | NftData
+  id: number
+  market_cap_1h_change: number
+  name: string
+  slug: string
+  item: {
+    coin_id: number
+    data: ItemData
+    id: string
+    large: string
+    market_cap_rank: number
+    name: string
+    price_btc: number
+    score: number
+    slug: string
+    small: string
+    symbol: string
+    thumb: string
+  }
+  floor_price_24h_percentage_change: number
+  floor_price_in_native_currency: number
+  native_currency_symbol: string
+  nft_contract_id: number
+  symbol: string
+  thumb: string
+}

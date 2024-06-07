@@ -1,17 +1,29 @@
 import React from 'react'
+import S from './trending.styles'
 import Container from '../Container/Container'
-import { ITrending } from '@/types/api'
+import TrendingCard from '../TrendingCard/TrendingCard'
+import { Coin } from '@/types/api'
 
 interface ITrendingComponent {
-  trendingData: ITrending
+  title: string
+  trendingData: Coin[]
 }
 
-const Trending = ({
-  trendingData
-}: ITrendingComponent) => {
+const Trending = ({ title, trendingData }: ITrendingComponent) => {
   return (
     <Container>
-      epale
+      <div>
+        <S.Title>{title}</S.Title>
+      </div>
+      <S.TrendingList>
+        {
+          trendingData.slice(0,5).map(item => (
+            <TrendingCard
+              {...{item}}
+            />
+          ))
+        }
+      </S.TrendingList>
     </Container>
   )
 }
