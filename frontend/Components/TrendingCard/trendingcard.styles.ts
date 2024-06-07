@@ -24,7 +24,11 @@ const Score = styled.span`
 
 const Image = styled.img`
   border-radius: 50%;
-  margin: 0 1em;
+  margin: 0 .5em;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 1em;
+  }
 `
 
 const Name = styled.h2`
@@ -40,7 +44,11 @@ const Price = styled.p`
 
 const Symbol = styled.p`
   color: #808a9d;
-  margin-left: .5em;
+  margin: 0;
+
+  @media screen and (min-width: 768px) {
+    margin-left: .5em;
+  }
 `
 
 export default {
