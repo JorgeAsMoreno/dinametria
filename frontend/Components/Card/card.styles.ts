@@ -17,36 +17,54 @@ const Wrapper = styled.div`
 
 const Image = styled.img`
   border-radius: 50%;
-  height: 64px;
-  width: 64px;
+  height: 50px;
+  width: 50px;
+
+  @media screen and (min-width: 768px) {
+    height: 64px;
+    width: 64px;
+  }
 `
 
 const Name = styled.h3`
-  font-size: 1.425em;
+  font-size: 1em;
   font-weight: 500;
   margin: 0 .5em;
+
+  @media screen and (min-width: 768px) {
+    font-size: 1.425em;
+  }
 `
 
 const Symbol = styled.h5`
   color: #808a9d;
   font-size: 1.125em;
+  margin-left: .5em;
 `
 
 const Price = styled.p`
   font-weight: bold;
+  font-size: 1em;
 `
 
 const Left = styled.div`
   align-items: center;
   display: flex;
-  width: 40%;
+
+  @media screen and (min-width: 768px) {
+    width: 40%;
+  }
 `
 
 const Middle = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 2em;
-  width: 20%;
+  gap: .5em;
+
+  @media screen and (min-width: 768px) {
+    gap: 2em;
+    width: 20%;
+  }
 `
 
 const Right = styled.div`

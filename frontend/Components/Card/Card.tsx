@@ -10,6 +10,7 @@ interface ICard {
 
 const Card = ({ coin }: ICard) => {
   const isMobile = useViewMobile()
+
   return (
     <S.Wrapper>
       <S.Left>
@@ -18,22 +19,34 @@ const Card = ({ coin }: ICard) => {
           aria-label={coin.name}
           src={coin.image}
         />
-        <S.Name>{coin.name}</S.Name>
-        <S.Symbol>({coin.symbol})</S.Symbol>
+        {
+          isMobile ?
+          <S.Symbol>({coin.symbol})</S.Symbol> :
+          <>
+            <S.Name>{coin.name}</S.Name>
+            <S.Symbol>({coin.symbol})</S.Symbol>
+          </>
+        }
       </S.Left>
       <S.Middle>
         <S.Price>${coin.current_price}</S.Price>
-        <S.PricePercentage color={coin.price_change_percentage_24h < 0 ? '#ea3943' : '#16c784'}>
-          {
-            coin.price_change_percentage_24h < 0 ? <IoMdTrendingDown /> : <IoMdTrendingUp />
-          }
-          {coin.price_change_percentage_24h}
-        </S.PricePercentage>
+        {
+          !isMobile &&
+          <S.PricePercentage color={coin.price_change_percentage_24h < 0 ? '#ea3943' : '#16c784'}>
+            {
+              coin.price_change_percentage_24h < 0 ? <IoMdTrendingDown /> : <IoMdTrendingUp />
+            }
+            {coin.price_change_percentage_24h}
+          </S.PricePercentage>
+        }
       </S.Middle>
-      <S.Right>
-        <S.MarketCap>Coin Marketcap</S.MarketCap>
-        <S.MarketCapPrice>{coin.market_cap}</S.MarketCapPrice>
-      </S.Right>
+      {
+        !isMobile &&
+        <S.Right>
+          <S.MarketCap>Coin Marketcap</S.MarketCap>
+          <S.MarketCapPrice>{coin.market_cap}</S.MarketCapPrice>
+        </S.Right>
+      }
     </S.Wrapper>
   )
 }
