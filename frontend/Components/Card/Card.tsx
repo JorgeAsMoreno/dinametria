@@ -3,6 +3,7 @@ import React from 'react'
 import S from './card.styles'
 import { useViewMobile } from '../../hooks/useViewMobile'
 import { IoMdTrendingUp, IoMdTrendingDown } from "react-icons/io";
+import Link from 'next/link';
 
 interface ICard {
   coin: IMarkets
@@ -12,7 +13,7 @@ const Card = ({ coin }: ICard) => {
   const isMobile = useViewMobile()
 
   return (
-    <S.Wrapper>
+    <S.Wrapper  href={`/detail/${coin.name}`} target='_blank' rel='noreferrer'>
       <S.Left>
         <S.Image
           alt={coin.name}

@@ -1,9 +1,11 @@
 import CoinGeckoApiClient from "../clients/CoinGeckoApiClient";
 
 class CoinGeckoService {
-  public async getCoinsList(): Promise<any> {
+  public async getCoinDetail(
+    coin: string
+  ): Promise<any> {
     try {
-      return await CoinGeckoApiClient.getCoinsList()
+      return await CoinGeckoApiClient.getCoinDetail(coin)
     } catch (error) {
       return Promise.reject(error)
     }

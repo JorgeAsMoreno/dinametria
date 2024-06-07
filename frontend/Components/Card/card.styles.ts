@@ -1,6 +1,7 @@
+import Link from "next/link";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
   align-items: center;
   border-bottom: 1px solid #f0f6ff;
   display: flex;
@@ -9,7 +10,8 @@ const Wrapper = styled.div`
   padding: .875em 1em;
   cursor: pointer;
   transition: .4s;
-  
+  text-decoration: none;
+  color: #000;
   &:hover {
     background-color: #f0f6ff;
   }

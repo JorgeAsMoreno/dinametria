@@ -6,9 +6,10 @@ class CoinGeckoApiClient {
   private restClient = axios.create({})
   private timeout = 7000
 
-  public async getCoinsList(): Promise<any> {
-    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coin/list`
-    
+  public async getCoinDetail(
+    coin: string
+  ): Promise<any> {
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins/${coin}`
     return this.restClient
     .get(url, {
       timeout: this.timeout,
