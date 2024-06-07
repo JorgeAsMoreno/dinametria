@@ -1,5 +1,5 @@
-import { checkStatus } from "@/pages/utils/helpers";
 import axios, { AxiosResponse } from "axios";
+import { checkStatus } from "../../frontend/utils/helpers";
 
 export async function insecureFetchFromAPI(path: string) {
   try {
