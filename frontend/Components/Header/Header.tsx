@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { ITrending } from '@/types/api'
+import { ITrending } from '@/types/trending'
 import { insecureFetchFromAPI } from '@/requests/api'
 import S from './header.styles'
-import Trending from '../../Trending/Trending'
-import { REQUESTS_API_URL } from '../../../utils/constants'
+import { REQUESTS_API_URL } from '../../utils/constants'
+import Trending from '../Trending/Trending'
+import Container from '../Container/Container'
 
 const Header = () => {
   const [trendingData, setTrendingData] = useState<ITrending>({
@@ -19,13 +20,16 @@ const Header = () => {
       console.error(error)
     }))
   }, [])
+
   return (
-    <S.Header>
-      <Trending
-        title='Trending Coins'
-        trendingData={trendingData.coins}
-      />
-    </S.Header>    
+    <Container>
+      <S.Header>
+        <Trending
+          title='Trending Coins'
+          trendingData={trendingData.coins}
+        />
+      </S.Header>    
+    </Container>
   )
 }
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import S from './trendingcard.styles'
-import { Coin } from '@/types/api'
+import { Coin } from '@/types/trending'
 import { useViewMobile } from '../../hooks/useViewMobile'
 
 interface ITrendingCard {
