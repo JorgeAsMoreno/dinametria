@@ -1,8 +1,7 @@
 import React from 'react'
 import S from './trending.styles'
-import Container from '../Container/Container'
 import TrendingCard from '../TrendingCard/TrendingCard'
-import { Coin } from '@/types/api'
+import { Coin } from '@/types/trending'
 
 interface ITrendingComponent {
   title: string
@@ -11,20 +10,21 @@ interface ITrendingComponent {
 
 const Trending = ({ title, trendingData }: ITrendingComponent) => {
   return (
-    <Container>
+    <S.Wrapper>
       <div>
         <S.Title>{title}</S.Title>
       </div>
-      <S.TrendingList>
+      <div>
         {
           trendingData.slice(0,5).map(item => (
             <TrendingCard
+              key={item.item.id}
               {...{item}}
             />
           ))
         }
-      </S.TrendingList>
-    </Container>
+      </div>
+    </S.Wrapper>
   )
 }
 
