@@ -15,7 +15,7 @@ class CoinGeckoApiClient {
       timeout: this.timeout,
       headers: {
         'Content-Type': 'application/json',
-        'x-cg-pro-api-key': process.env.NEXT_PUBLIC_API_TOKEN
+        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
       }
     })
     .then(({ data }) => {
@@ -37,7 +37,7 @@ class CoinGeckoApiClient {
       timeout: this.timeout,
       headers: {
         'Content-Type': 'application/json',
-        'x-cg-pro-api-key': process.env.NEXT_PUBLIC_API_TOKEN
+        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
       }
     })
     .then(({ data }) => {
@@ -56,7 +56,45 @@ class CoinGeckoApiClient {
       timeout: this.timeout,
       headers: {
         'Content-Type': 'application/json',
-        'x-cg-pro-api-key': process.env.NEXT_PUBLIC_API_TOKEN
+        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
+      }
+    })
+    .then(({ data }) => {
+      return data
+    })
+    .catch((error) => {
+      const status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
+      return Promise.reject(new WebRequestError(status, error.message))
+    })
+  }
+  public async getCoinList(): Promise<any> {
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins`
+
+    return this.restClient
+    .get(url, {
+      timeout: this.timeout,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
+      }
+    })
+    .then(({ data }) => {
+      return data
+    })
+    .catch((error) => {
+      const status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
+      return Promise.reject(new WebRequestError(status, error.message))
+    })
+  }
+  public async getStats(): Promise<any> {
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/stats`
+    
+    return this.restClient
+    .get(url, {
+      timeout: this.timeout,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
       }
     })
     .then(({ data }) => {
@@ -75,7 +113,7 @@ class CoinGeckoApiClient {
       timeout: this.timeout,
       headers: {
         'Content-Type': 'application/json',
-        'x-cg-pro-api-key': process.env.NEXT_PUBLIC_API_TOKEN
+        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
       }
     })
     .then(({ data }) => {

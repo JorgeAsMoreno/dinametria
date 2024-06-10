@@ -1,12 +1,12 @@
 import Header from "../../frontend/Components/Header/Header";
-import Markets from "../../frontend/Components/Markets/Markets";
+import TableCoins from "../../frontend/Components/TableCoins/TableCoins";
 
 
 export default function Home() {
   return (
     <>
       <Header />
-      <Markets />
+      <TableCoins />
     </>
   )
 }
