@@ -1,9 +1,22 @@
 import CoinGeckoApiClient from "../clients/CoinGeckoApiClient";
 
 class CoinGeckoService {
-  public async getCoinsList(): Promise<any> {
+  public async getCoinDetail(
+    coin: string
+  ): Promise<any> {
     try {
-      return await CoinGeckoApiClient.getCoinsList()
+      return await CoinGeckoApiClient.getCoinDetail(coin)
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
+  public async getCoinHistoryChart(
+    coin: string,
+    currency: string,
+    days: string
+  ): Promise<any> {
+    try {
+      return await CoinGeckoApiClient.getCoinHistoryChart(coin, currency, days)
     } catch (error) {
       return Promise.reject(error)
     }
@@ -18,6 +31,13 @@ class CoinGeckoService {
   public async getStats(): Promise<any> {
     try {
       return await CoinGeckoApiClient.getStats()
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
+  public async getCoinList(): Promise<any> {
+    try {
+      return await CoinGeckoApiClient.getCoinList()
     } catch (error) {
       return Promise.reject(error)
     }

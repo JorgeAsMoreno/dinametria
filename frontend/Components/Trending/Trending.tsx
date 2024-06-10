@@ -1,29 +1,32 @@
 import React from 'react'
 import S from './trending.styles'
-import TrendingCard from '../TrendingCard/TrendingCard'
-import { Coin } from '@/types/trending'
+import { ICoin } from '@/types/coins'
+import Coin from '../Coin/Coin'
 
-interface ITrendingComponent {
+interface ITrending {
   title: string
-  trendingData: Coin[]
+  data: ICoin
 }
 
-const Trending = ({ title, trendingData }: ITrendingComponent) => {
+const Trending = ({ title, data }: ITrending) => {
+
   return (
     <S.Wrapper>
-      <div>
+      <S.Contents>
         <S.Title>{title}</S.Title>
-      </div>
-      <div>
+      </S.Contents>
+      <S.Contents>
         {
-          trendingData.slice(0,5).map(item => (
-            <TrendingCard
-              key={item.item.id}
-              {...{item}}
+          Object.values(data).map(coin => (
+            <Coin
+              symbol={coin.symbol}
+              key={coin.uuid}
+              name={coin.name}
+              iconUrl={coin.iconUrl}
             />
           ))
         }
-      </div>
+      </S.Contents>
     </S.Wrapper>
   )
 }

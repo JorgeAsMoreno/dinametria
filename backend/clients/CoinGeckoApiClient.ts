@@ -6,11 +6,6 @@ class CoinGeckoApiClient {
   private restClient = axios.create({})
   private timeout = 7000
 
-<<<<<<< Updated upstream
-  public async getCoinsList(): Promise<any> {
-    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coin/list`
-    
-=======
   public async getCoinDetail(
     coin: string
   ): Promise<any> {
@@ -37,7 +32,6 @@ class CoinGeckoApiClient {
     days: string
   ): Promise<any> {
     const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins/${coin}/market_chart?vs_currency=${currency}&days=${days}`
->>>>>>> Stashed changes
     return this.restClient
     .get(url, {
       timeout: this.timeout,
@@ -54,44 +48,6 @@ class CoinGeckoApiClient {
       return Promise.reject(new WebRequestError(status, error.message))
     })
   }
-  public async getCoins(): Promise<any> {
-    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins?limit=15`
-    
-    return this.restClient
-    .get(url, {
-      timeout: this.timeout,
-      headers: {
-        'Content-Type': 'application/json',
-        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
-      }
-    })
-    .then(({ data }) => {
-      return data
-    })
-    .catch((error) => {
-      const status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
-      return Promise.reject(new WebRequestError(status, error.message))
-    })
-  }
-  public async getStats(): Promise<any> {
-    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/stats`
-    return this.restClient
-    .get(url, {
-      timeout: this.timeout,
-      headers: {
-        'Content-Type': 'application/json',
-        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
-      }
-    })
-    .then(({ data }) => {
-      return data
-    })
-    .catch((error) => {
-      const status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
-      return Promise.reject(new WebRequestError(status, error.message))
-    })
-  }
-
   public async getTrending(): Promise<any> {
     const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/search/trending`
     
@@ -111,8 +67,46 @@ class CoinGeckoApiClient {
       return Promise.reject(new WebRequestError(status, error.message))
     })
   }
+  public async getCoinList(): Promise<any> {
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins`
+
+    return this.restClient
+    .get(url, {
+      timeout: this.timeout,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
+      }
+    })
+    .then(({ data }) => {
+      return data
+    })
+    .catch((error) => {
+      const status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
+      return Promise.reject(new WebRequestError(status, error.message))
+    })
+  }
+  public async getStats(): Promise<any> {
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/stats`
+    
+    return this.restClient
+    .get(url, {
+      timeout: this.timeout,
+      headers: {
+        'Content-Type': 'application/json',
+        'x-access-token': process.env.NEXT_PUBLIC_API_TOKEN
+      }
+    })
+    .then(({ data }) => {
+      return data
+    })
+    .catch((error) => {
+      const status = error?.response?.status || HttpStatusCode.INTERNAL_SERVER_ERROR
+      return Promise.reject(new WebRequestError(status, error.message))
+    })
+  }
   public async getMarkets(): Promise<any> {
-    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false`
     
     return this.restClient
     .get(url, {

@@ -7,10 +7,21 @@ const Title = styled.h3`
 `
 
 const Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: -webkit-fill-available;
 `
 
+
+const Contents = styled.div`
+  display: flex;
+`
+
+
 export default {
   Title,
-  Wrapper
+  Wrapper,
+  Contents
 }

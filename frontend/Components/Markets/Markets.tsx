@@ -10,7 +10,7 @@ const Markets = () => {
   const [marketsData, setMarketsData] = useState<IMarkets[]>(defaultValuesMarkets)
 
   useEffect(() => {
-    insecureFetchFromAPI(REQUESTS_API_URL.getMarkets).then((response) => {
+    insecureFetchFromAPI(REQUESTS_API_URL.getStats).then((response) => {
       setMarketsData(response)
     }).catch(((error) => {
       console.error(error)
@@ -19,18 +19,9 @@ const Markets = () => {
 
   return (
     <Container>
-      <S.Title>Markets</S.Title>
+      <S.Title>Stats</S.Title>
       <div>
-        {
-          Object.values(marketsData).map(coin => (
-            <Card
-              key={coin.id}
-              {...{
-                coin
-              }}
-            />
-          ))
-        }
+        
       </div>
     </Container>
   )
