@@ -4,6 +4,7 @@ import { GetServerSideProps } from 'next'
 import { REQUESTS_API_URL } from '../../../frontend/utils/constants'
 import { ICoinRoot } from '@/types/coins'
 import Container from '../../../frontend/Components/Container/Container'
+import Chart from '../../../frontend/Components/Chart/Chart'
 
 interface ICoinDetail {
   coin: string
@@ -17,11 +18,19 @@ const CoinDetail = ({ coin }: ICoinDetail) => {
     }).catch(error => {
       console.error(error)
     })
-  }, [])
-
+  }, [coin])
+  console.log(coinDetails)
   return (
     <Container>
+      <img
+        alt={coinDetails?.name}
+        src={coinDetails?.image.small}
+      />
       {coinDetails?.name}
+      {coinDetails?.categories.map(cat => (
+        <p key={cat}>{cat}</p>
+      ))}
+      <Chart />
     </Container>
   )
 }

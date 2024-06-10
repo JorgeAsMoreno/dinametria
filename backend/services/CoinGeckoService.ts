@@ -10,6 +10,17 @@ class CoinGeckoService {
       return Promise.reject(error)
     }
   }
+  public async getCoinHistoryChart(
+    coin: string,
+    currency: string,
+    days: string
+  ): Promise<any> {
+    try {
+      return await CoinGeckoApiClient.getCoinHistoryChart(coin, currency, days)
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
   public async getTrending(): Promise<any> {
     try {
       return await CoinGeckoApiClient.getTrending()

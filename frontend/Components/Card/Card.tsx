@@ -13,7 +13,7 @@ const Card = ({ coin }: ICard) => {
   const isMobile = useViewMobile()
 
   return (
-    <S.Wrapper  href={`/detail/${coin.name}`} target='_blank' rel='noreferrer'>
+    <S.Wrapper  href={`/detail/${coin.name.toLocaleLowerCase()}`} target='_blank' rel='noreferrer'>
       <S.Left>
         <S.Image
           alt={coin.name}
