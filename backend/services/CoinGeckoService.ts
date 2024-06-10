@@ -15,6 +15,13 @@ class CoinGeckoService {
       return Promise.reject(error)
     }
   }
+  public async getStats(): Promise<any> {
+    try {
+      return await CoinGeckoApiClient.getStats()
+    } catch (error) {
+      return Promise.reject(error)
+    }
+  }
   public async getMarkets(): Promise<any> {
     try {
       return await CoinGeckoApiClient.getMarkets()
