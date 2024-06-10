@@ -18,12 +18,13 @@ const Trending = ({ title, data }: ITrending) => {
       <S.Contents>
         {
           Object.values(data).map(coin => (
-            <Coin
-              symbol={coin.symbol}
-              key={coin.uuid}
-              name={coin.name}
-              iconUrl={coin.iconUrl}
-            />
+            <React.Fragment key={coin.uuid}>
+              <Coin
+                symbol={coin.symbol}
+                name={coin.name}
+                iconUrl={coin.iconUrl}
+              />
+            </React.Fragment>
           ))
         }
       </S.Contents>

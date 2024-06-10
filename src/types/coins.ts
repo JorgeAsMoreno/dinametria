@@ -14,3 +14,37 @@ export interface ICoinsResponse {
   }
   status: string
 }
+
+export interface ICoinsList {
+  data: {
+    stats: IStats
+    coins: ICoins[]
+  }
+  status: string
+}
+
+export interface IStats {
+  total: number
+  totalCoins: number
+  totalMarkets: number
+  totalExchanges: number
+  totalMarketCap: string
+  total24hVolume: string
+}
+
+export interface ICoins {
+  uuid: string
+  symbol: string
+  name: string
+  color: string
+  iconUrl: string
+  marketCap: number
+  price: number
+  listedAt: number
+  change: number
+  rank: number
+  sparkline: number[]
+  coinrankingUrl: string
+  btcPrice: number
+  contractAddresses: []
+}
