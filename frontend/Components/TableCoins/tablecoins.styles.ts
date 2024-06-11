@@ -59,9 +59,47 @@ const Symbol = styled.span`
   margin-left: .5em;
 `
 
+const TableControls = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.125em 0;
+`
+
+const Icon = styled.img`
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  margin-right: .5em;
+
+  @media screen and (min-width: 1024px) {
+    height: 38px;
+    width: 38px;
+  }
+`
+
+const CoinInfo = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const Search = styled.div`
+  align-items: center;
+  display: flex;
+`
+
+const Empty = styled.div`
+  padding: 4em;
+  text-align: center;
+`
 export default {
   Table,
+  TableControls,
+  Search,
   Thead,
   Tbody,
-  Symbol
+  Symbol,
+  Icon,
+  CoinInfo,
+  Empty
 }

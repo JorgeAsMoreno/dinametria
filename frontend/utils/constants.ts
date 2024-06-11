@@ -3,5 +3,5 @@ export const REQUESTS_API_URL = {
   getCoinDetail:(coin: string) => `/api/coins/${coin}`,
   getMarkets: '/api/markets',
   getStats: '/api/stats',
-  getCoins: '/api/coins-list',
+  getCoins: '/api/coins-list?orderBy=:orderBy'
 }

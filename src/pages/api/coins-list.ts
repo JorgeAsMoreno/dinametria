@@ -8,8 +8,11 @@ const StatsEndpoint = async (
   req: NextApiRequest,
   res: NextApiResponse
 ) => {
+  const { orderBy } = req.query
   try {
-    const coins = await CoinGeckoService.getCoinList()
+    const coins = await CoinGeckoService.getCoinList(
+      orderBy as string
+    )
     return res.status(HttpStatusCode.OK).json(coins)
   } catch (error) {
     const webRequestError = error as WebRequestError

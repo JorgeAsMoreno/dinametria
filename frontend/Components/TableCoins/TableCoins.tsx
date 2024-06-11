@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import Container from '../Container/Container'
 import S from './tablecoins.styles'
 import { insecureFetchFromAPI } from '@/requests/api'
 import { REQUESTS_API_URL } from '../../utils/constants'
-import { ICoinsList } from '@/types/coins'
+import { ICoins, ICoinsList } from '@/types/coins'
 import { IoMdTrendingDown, IoMdTrendingUp } from 'react-icons/io'
 import { useViewMobile } from '../../hooks/useViewMobile'
 import { formatNumber, formatNumberQuantity } from '../../utils/helpers'
+import Dropdown from '../Dropdown/Dropdown'
+import Search from '../Search/Search'
 
 const TableCoins = () => {
   const [coins, setCoins] = useState<ICoinsList>({
@@ -38,21 +40,49 @@ const TableCoins = () => {
     },
     status: ''
   })
+  const [selectedFilterOption, setSelectedFilterOption] = useState<string>('marketCap')
+  const [inputSearch, setInputSearch] = useState<string>('')
   const isMobile = useViewMobile()
 
   useEffect(() => {
-    insecureFetchFromAPI(REQUESTS_API_URL.getCoins).then(response => {
+    insecureFetchFromAPI(REQUESTS_API_URL.getCoins.replace(':orderBy', selectedFilterOption)).then(response => {
       if (response.status === 'success') {
         setCoins(response)
       }
     }).catch((error) => {
       console.error(error)
     })
-  }, [])
+  }, [selectedFilterOption])
+
+  const onChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputSearch(event.target.value)
+  }
+
+  const filteredList = useMemo(() => {
+    return coins.data.coins.filter((e: ICoins) => {
+      if((e.name).toString().toLocaleLowerCase().includes(inputSearch.toLocaleLowerCase())) {
+        return e.name
+      }
+    })
+  }, [inputSearch, coins.data.coins])
 
   return (
    <Container>
-      <p>All coins</p>
+      <S.TableControls>
+        <S.Search>
+          <p>All coins</p>
+          <Search
+            placeholder='search coin...'
+            onChangeValue={onChangeInputValue}
+          />
+        </S.Search>
+        <Dropdown
+          title='Order by'
+          options={['price', 'marketCap', '24hVolume', 'change', 'listedAt']}
+          selectedFilterOption={selectedFilterOption}
+          setSelectedFilterOption={setSelectedFilterOption}
+        />
+      </S.TableControls>
       <S.Table>
         <S.Thead>
           <tr>
@@ -67,18 +97,23 @@ const TableCoins = () => {
           </tr>
         </S.Thead>
         <S.Tbody>
-          {coins.data.coins.map(coin => (
+          {filteredList.map(coin => (
             <tr key={coin.uuid}>
               <td>{coin.rank}</td>
               <td>
                 {isMobile ?
                   coin.symbol :
-                  <>
+                  <S.CoinInfo>
+                    <S.Icon
+                      alt={coin.name}
+                      aria-label={coin.name}
+                      src={coin.iconUrl}
+                    />
                     {coin.name}
                     <S.Symbol>
                       ({coin.symbol})
                     </S.Symbol>
-                  </>
+                  </S.CoinInfo>
                 }
               </td>
               <td>{formatNumber(coin.price)}</td>
@@ -101,7 +136,10 @@ const TableCoins = () => {
             </tr>
           ))}
         </S.Tbody>
-      </S.Table>      
+      </S.Table>{
+        filteredList.length === 0 &&
+        <S.Empty>No hay resultados para tu busqueda...</S.Empty>
+      }
     </Container>   
   )
 }
