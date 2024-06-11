@@ -25,3 +25,5 @@ export const formatNumberQuantity = (number: number) => {
   }
   return number.toFixed(2) + " " + suffixes[index]
 }
+
+export const formattedTimeStamp = (timestamp: number) => new Date(timestamp * 1000).toLocaleString()

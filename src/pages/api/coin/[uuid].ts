@@ -9,11 +9,11 @@ const CoinsListEndpoint = async (
   res: NextApiResponse
 ) => {
   try {
-    const { coin } = req.query
-    const coins = await CoinGeckoService.getCoinDetail(
-      coin as string
+    const { uuid } = req.query
+    const response = await CoinGeckoService.getCoinDetail(
+      uuid as string
     )
-    return res.status(HttpStatusCode.OK).json(coins)
+    return res.status(HttpStatusCode.OK).json(response)
   } catch (error) {
     const webRequestError = error as WebRequestError
     return res.status(webRequestError.status).json({ message: webRequestError.message })

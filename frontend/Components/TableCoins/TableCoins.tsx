@@ -9,6 +9,7 @@ import { useViewMobile } from '../../hooks/useViewMobile'
 import { formatNumber, formatNumberQuantity } from '../../utils/helpers'
 import Dropdown from '../Dropdown/Dropdown'
 import Search from '../Search/Search'
+import Link from 'next/link'
 
 const TableCoins = () => {
   const [coins, setCoins] = useState<ICoinsList>({
@@ -98,42 +99,50 @@ const TableCoins = () => {
         </S.Thead>
         <S.Tbody>
           {filteredList.map(coin => (
-            <tr key={coin.uuid}>
-              <td>{coin.rank}</td>
-              <td>
-                {isMobile ?
-                  coin.symbol :
-                  <S.CoinInfo>
-                    <S.Icon
-                      alt={coin.name}
-                      aria-label={coin.name}
-                      src={coin.iconUrl}
-                    />
-                    {coin.name}
-                    <S.Symbol>
-                      ({coin.symbol})
-                    </S.Symbol>
-                  </S.CoinInfo>
+            <Link
+              target='_blank'
+              style={{textDecoration: 'none'}}
+              rel='noreferrer'
+              href={`/detail/${coin.uuid}`
+            }
+            >
+              <tr key={coin.uuid}>
+                <td>{coin.rank}</td>
+                <td>
+                  {isMobile ?
+                    coin.symbol :
+                    <S.CoinInfo>
+                      <S.Icon
+                        alt={coin.name}
+                        aria-label={coin.name}
+                        src={coin.iconUrl}
+                      />
+                      {coin.name}
+                      <S.Symbol>
+                        ({coin.symbol})
+                      </S.Symbol>
+                    </S.CoinInfo>
+                  }
+                </td>
+                <td>{formatNumber(coin.price)}</td>
+                {
+                  !isMobile &&
+                  <td>{formatNumberQuantity(coin.marketCap)}</td>
                 }
-              </td>
-              <td>{formatNumber(coin.price)}</td>
-              {
-                !isMobile &&
-                <td>{formatNumberQuantity(coin.marketCap)}</td>
-              }
-              <td
-                style={{
-                  color: coin.change < 0 ? '#ea3943' : '#16c784',
-                }}
-              > 
-                <span style={{
-                  marginRight: '.5em'
-                }}>
-                  {coin.change < 0 ? <IoMdTrendingDown /> : <IoMdTrendingUp />}
-                </span>
-                {coin.change}
-              </td>
-            </tr>
+                <td
+                  style={{
+                    color: coin.change < 0 ? '#ea3943' : '#16c784',
+                  }}
+                > 
+                  <span style={{
+                    marginRight: '.5em'
+                  }}>
+                    {coin.change < 0 ? <IoMdTrendingDown /> : <IoMdTrendingUp />}
+                  </span>
+                  {coin.change}
+                </td>
+              </tr>
+            </Link>
           ))}
         </S.Tbody>
       </S.Table>{

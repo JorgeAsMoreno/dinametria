@@ -7,9 +7,9 @@ class CoinGeckoApiClient {
   private timeout = 7000
 
   public async getCoinDetail(
-    coin: string
+    uuid: string
   ): Promise<any> {
-    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins/${coin}`
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coin/${uuid}`
     return this.restClient
     .get(url, {
       timeout: this.timeout,
@@ -27,11 +27,9 @@ class CoinGeckoApiClient {
     })
   }
   public async getCoinHistoryChart(
-    coin: string,
-    currency: string,
-    days: string
+    uuid: string
   ): Promise<any> {
-    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins/${coin}/market_chart?vs_currency=${currency}&days=${days}`
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coin/${uuid}/history`
     return this.restClient
     .get(url, {
       timeout: this.timeout,

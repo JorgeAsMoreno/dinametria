@@ -2,21 +2,19 @@ import CoinGeckoApiClient from "../clients/CoinGeckoApiClient";
 
 class CoinGeckoService {
   public async getCoinDetail(
-    coin: string
+    uuid: string
   ): Promise<any> {
     try {
-      return await CoinGeckoApiClient.getCoinDetail(coin)
+      return await CoinGeckoApiClient.getCoinDetail(uuid)
     } catch (error) {
       return Promise.reject(error)
     }
   }
   public async getCoinHistoryChart(
-    coin: string,
-    currency: string,
-    days: string
+    uuid: string
   ): Promise<any> {
     try {
-      return await CoinGeckoApiClient.getCoinHistoryChart(coin, currency, days)
+      return await CoinGeckoApiClient.getCoinHistoryChart(uuid)
     } catch (error) {
       return Promise.reject(error)
     }
