@@ -8,6 +8,7 @@ import { REQUESTS_API_URL } from '../../../frontend/utils/constants'
 import S from '../../styles/details.styles'
 import HistoryChart from '../../../frontend/Components/Chart/Chart'
 import Container from '../../../frontend/Components/Container/Container'
+import { useViewMobile } from '../../../frontend/hooks/useViewMobile'
 
 interface ICoinDetail {
   uuid: string
@@ -79,6 +80,7 @@ const CoinDetail = ({ uuid }: ICoinDetail) => {
   }, [])
 
   const coin = coinDetails.data.coin
+  const isMobile = useViewMobile()
 
   return (
     <Container>
@@ -96,9 +98,12 @@ const CoinDetail = ({ uuid }: ICoinDetail) => {
             <S.Name>
               {coin.name}
             </S.Name>
-            <S.Symbol>
-              {coin.symbol}
-            </S.Symbol>
+            {
+              !isMobile &&
+              <S.Symbol>
+                {coin.symbol}
+              </S.Symbol>
+            }
           </div>
           <div>
             <S.Price>
@@ -116,7 +121,6 @@ const CoinDetail = ({ uuid }: ICoinDetail) => {
             </S.Change>
           </div>
         </S.TopContent>
-        <h3>{coin.name}</h3>
         <HistoryChart
           {...{uuid}}
           coinName={coin.name}

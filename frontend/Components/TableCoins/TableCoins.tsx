@@ -5,12 +5,10 @@ import { REQUESTS_API_URL, REQUEST_API_STATUS } from '../../utils/constants'
 import { useViewMobile } from '../../hooks/useViewMobile'
 import { IoMdTrendingDown, IoMdTrendingUp } from 'react-icons/io'
 import { formatNumber, formatNumberQuantity } from '../../utils/helpers'
-import Link from 'next/link'
 import S from './tablecoins.styles'
 import Search from '../Search/Search'
 import Spinner from '../Sipnner/Spinner'
 import Dropdown from '../Dropdown/Dropdown'
-import Container from '../Container/Container'
 
 const TableCoins = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
