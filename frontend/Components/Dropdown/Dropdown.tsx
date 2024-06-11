@@ -22,7 +22,10 @@ const Dropdown = ({
         <S.Title>
           {title}:
         </S.Title>
-        <S.SelectedOption onClick={() => setShowOptions(prev => !prev)}>
+        <S.SelectedOption
+          onClick={() => setShowOptions(prev => !prev)}
+          aria-label='Show filter options'
+        >
           {selectedFilterOption}
           <MdKeyboardArrowDown
             style={{
@@ -35,6 +38,7 @@ const Dropdown = ({
             <S.DropdownOptions>
               {options.map(option => (
                 <S.Options
+                  aria-label='Choose option and close'
                   onClick={() => {
                     setSelectedFilterOption(option)
                     setShowOptions(false)
