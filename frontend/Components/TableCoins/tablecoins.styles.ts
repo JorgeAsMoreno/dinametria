@@ -83,12 +83,23 @@ const CoinInfo = styled.div`
   align-items: center;
 `
 
+const Search = styled.div`
+  align-items: center;
+  display: flex;
+`
+
+const Empty = styled.div`
+  padding: 4em;
+  text-align: center;
+`
 export default {
   Table,
   TableControls,
+  Search,
   Thead,
   Tbody,
   Symbol,
   Icon,
   CoinInfo,
+  Empty
 }
