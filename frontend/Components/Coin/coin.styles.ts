@@ -17,7 +17,7 @@ const Content = styled.div`
 
 const Image = styled.img`
   border-radius: 50%;
-  border: 3px solid blue;
+  border: 3px solid #cee1ff;
   padding: 2px;
   height: 48px;
   width: 48px;
@@ -30,7 +30,7 @@ const Image = styled.img`
 `
 
 const Name = styled.h3`
-  color: #000;
+  color: #214a88;
   font-size: .875em;
   display: -webkit-box;
   -webkit-line-clamp: 1;

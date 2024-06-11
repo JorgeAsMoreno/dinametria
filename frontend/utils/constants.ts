@@ -4,5 +4,6 @@ export const REQUESTS_API_URL = {
   getMarkets: '/api/markets',
   getStats: '/api/stats',
   getCoins: '/api/coins-list?orderBy=:orderBy',
-  getHistoryPrice: '/api/history?uuid=:uuid'
+  getHistoryPrice: '/api/history?uuid=:uuid',
+  getCoinSuggestion: '/api/suggestion?query=:suggestion'
 }

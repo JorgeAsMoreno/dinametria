@@ -61,9 +61,17 @@ const Symbol = styled.span`
 
 const TableControls = styled.div`
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: space-between;
   padding: 1.125em 0;
+  flex-direction: column;
+  gap: 1.5em;
+
+  @media screen and (min-width: 1024px) {
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+  }
 `
 
 const Icon = styled.img`
