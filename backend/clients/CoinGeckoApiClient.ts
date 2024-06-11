@@ -47,7 +47,7 @@ class CoinGeckoApiClient {
     })
   }
   public async getCoinList(order_by: string): Promise<any> {
-    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins?limit=10&orderBy=${order_by}`
+    const url = `${process.env.NEXT_PUBLIC_API_DOMAIN}/coins?orderBy=${order_by}`
 
     return this.restClient
     .get(url, {
