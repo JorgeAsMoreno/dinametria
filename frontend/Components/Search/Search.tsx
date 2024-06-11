@@ -14,6 +14,7 @@ const Search = ({
   return (
     <S.Wrapper>
       <S.Input
+        aria-label='Search input'
         placeholder={placeholder}
         onChange={onChangeValue}
       />
