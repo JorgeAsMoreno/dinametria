@@ -63,4 +63,4 @@ Abrir la aplicacion en: [http://localhost:3000](http://localhost:3000).
 
 ## Resumen
 
-Aunque el imprevisto de la API me quito mucho tiempo ya que tenia un par de dias con eso, pude tener los requisitos y features donde se demuestran diferentes aplicaciones de las mismas, cuidando detalles entre navegadores, performance, seguridad y sobre todo escalabilidad entre componentes y paginas
+Aunque el imprevisto de la API fue un problema ya que tenia un par de dias con eso encontre una API que tuviera el mismo enfoque y aunque los servicios `free` eran muy limitados logre tener los requisitos y features donde se demuestran diferentes aplicaciones de las mismas, cuidando detalles entre navegadores, performance, seguridad y sobre todo escalabilidad entre componentes y paginas.
