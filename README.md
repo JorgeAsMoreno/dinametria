@@ -64,3 +64,21 @@ Abrir la aplicacion en: [http://localhost:3000](http://localhost:3000).
 ## Resumen
 
 Aunque el imprevisto de la API fue un problema ya que tenia un par de dias con eso encontre una API que tuviera el mismo enfoque y aunque los servicios `free` eran muy limitados logre tener los requisitos y features donde se demuestran diferentes aplicaciones de las mismas, cuidando detalles entre navegadores, performance, seguridad y sobre todo escalabilidad entre componentes y paginas.
+
+
+## Screenshots
+
+- Desktop
+
+<img width="1713" alt="Captura de pantalla 2024-06-11 a la(s) 1 49 34 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/18246e64-9b90-4a79-a0bb-3a391ecc0e17">
+<img width="1710" alt="Captura de pantalla 2024-06-11 a la(s) 1 50 16 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/241c8605-7213-4ac7-b614-d57ca63538fc">
+<img width="1706" alt="Captura de pantalla 2024-06-11 a la(s) 1 50 27 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/f17ea34e-8c1b-496a-990a-1650f0f7edce">
+<img width="1709" alt="Captura de pantalla 2024-06-11 a la(s) 1 56 19 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/ef6c7dac-ac14-4790-93ab-c9b506f685b7">
+<img width="1721" alt="Captura de pantalla 2024-06-11 a la(s) 1 50 46 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/bcd643b7-7ab0-4028-9920-13b093e6376b">
+<img width="1716" alt="Captura de pantalla 2024-06-11 a la(s) 1 50 55 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/27c3022d-cd42-49f7-8a60-56a56ae3d457">
+<img width="1709" alt="Captura de pantalla 2024-06-11 a la(s) 1 51 03 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/861bae34-9c0f-4e87-8e17-8a75dc775ae1">
+<img width="1709" alt="Captura de pantalla 2024-06-11 a la(s) 1 51 13 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/0fdd169e-6df9-4813-a51e-b904475fc816">
+<img width="1294" alt="Captura de pantalla 2024-06-11 a la(s) 1 51 47 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/62e5f90d-7b74-4229-a1f5-564f52e4cb2d">
+
+
+
