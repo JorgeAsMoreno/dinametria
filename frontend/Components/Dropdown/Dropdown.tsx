@@ -1,6 +1,6 @@
 import React, { Dispatch, useState } from 'react'
-import S from './dropdown.styles'
 import { MdKeyboardArrowDown } from "react-icons/md";
+import S from './dropdown.styles'
 
 interface IDropdown {
   title: string

@@ -1,11 +1,12 @@
 import React from 'react'
 import S from './search.styles'
-import { FaSearch } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa"
 
 interface ISearch {
   onChangeValue: (event: React.ChangeEvent<HTMLInputElement>) => void
   placeholder: string
 }
+
 const Search = ({
   placeholder,
   onChangeValue

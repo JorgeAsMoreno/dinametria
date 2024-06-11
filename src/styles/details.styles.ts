@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const TopContent = styled.div`
   align-items: start;
@@ -15,6 +15,18 @@ const TopContent = styled.div`
   @media screen and (min-width: 1024px) {
     align-items: center;
     flex-direction: row;
+  }
+`
+
+const Wrapper = styled.div`
+  justify-content: start;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  height: 100vh;
+
+  @media screen and (min-width: 1024px) {
+    height: 100%;
   }
 `
 
@@ -54,7 +66,6 @@ const Price = styled.p`
 const Description = styled.div`
   display: flex;
   color: #214a88;
-  margin: 1em 0;
 `
 
 const Summary = styled.span`
@@ -77,8 +88,8 @@ const Text = styled.p`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  display: flex;
   align-items: center;
+  margin: auto 1em auto;
 `
 
 const Rank = styled.p`
@@ -106,5 +117,6 @@ export default {
   Description,
   Price,
   Change,
-  Rank
+  Rank,
+  Wrapper
 }
