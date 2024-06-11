@@ -81,4 +81,22 @@ Aunque el imprevisto de la API fue un problema ya que tenia un par de dias con e
 <img width="1294" alt="Captura de pantalla 2024-06-11 a la(s) 1 51 47 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/62e5f90d-7b74-4229-a1f5-564f52e4cb2d">
 
 
+- Mobile
+  
+<img width="440" alt="Captura de pantalla 2024-06-11 a la(s) 1 59 33 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/3dc55a4e-a260-4a8e-bf26-b51d54f69cf3">
+<img width="453" alt="Captura de pantalla 2024-06-11 a la(s) 1 59 58 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/29d80367-cfea-4314-a8c3-f1ed1ca54361">
+<img width="453" alt="Captura de pantalla 2024-06-11 a la(s) 2 00 29 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/994c7c5b-9c58-4302-8226-2de31204924e">
+<img width="449" alt="Captura de pantalla 2024-06-11 a la(s) 2 00 35 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/52b8bcaa-0d23-46a0-b891-423c0691c803">
+<img width="440" alt="Captura de pantalla 2024-06-11 a la(s) 2 00 52 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/2b0e096a-b75f-4d0a-8580-c47b844ad913">
+<img width="452" alt="Captura de pantalla 2024-06-11 a la(s) 2 01 07 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/74c8695c-7595-4742-a416-396d1547944c">
+<img width="449" alt="Captura de pantalla 2024-06-11 a la(s) 2 01 27 p m" src="https://github.com/JorgeAsMoreno/dinametria/assets/36286673/d29416f3-48f9-4484-9c3f-ce4bcf7687a9">
+
+
+
+
+
+
+
+
+
 
