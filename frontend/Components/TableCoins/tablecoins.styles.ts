@@ -38,6 +38,11 @@ const Tbody = styled.tbody`
     border-bottom: 1px solid #cee1ff;
     justify-content: stretch;
     align-items: center;
+    transition: .4s;
+
+    &:hover {
+      background: #cee1ff;
+    }
   }
 
   td {
