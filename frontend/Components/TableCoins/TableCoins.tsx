@@ -10,8 +10,10 @@ import { formatNumber, formatNumberQuantity } from '../../utils/helpers'
 import Dropdown from '../Dropdown/Dropdown'
 import Search from '../Search/Search'
 import Link from 'next/link'
+import Spinner from '../Sipnner/Spinner'
 
 const TableCoins = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [coins, setCoins] = useState<ICoinsList>({
     data: {
       stats: {
@@ -46,12 +48,15 @@ const TableCoins = () => {
   const isMobile = useViewMobile()
 
   useEffect(() => {
+    setIsLoading(true)
     insecureFetchFromAPI(REQUESTS_API_URL.getCoins.replace(':orderBy', selectedFilterOption)).then(response => {
       if (response.status === 'success') {
         setCoins(response)
+        setIsLoading(false)
       }
     }).catch((error) => {
       console.error(error)
+      setIsLoading(false)
     })
   }, [selectedFilterOption])
 
@@ -67,6 +72,10 @@ const TableCoins = () => {
     })
   }, [inputSearch, coins.data.coins])
 
+  if (isLoading) {
+    return <Spinner />
+  }
+  
   return (
    <Container>
       <S.TableControls>

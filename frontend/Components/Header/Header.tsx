@@ -7,6 +7,7 @@ import Container from '../Container/Container'
 import { ICoinsResponse } from '@/types/coins'
 
 const Header = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [statsData, setStatsData] = useState<ICoinsResponse>({
     data: {
       newestCoins: {
@@ -29,12 +30,15 @@ const Header = () => {
   })
 
   useEffect(() => {
+    setIsLoading(true)
     insecureFetchFromAPI(REQUESTS_API_URL.getStats).then((response) => {
       if (response.status === 'success') {
         setStatsData(response)
+        setIsLoading(false)
       }
     }).catch(((error) => {
       console.error(error)
+      setIsLoading(false)
     }))
   }, [])
 

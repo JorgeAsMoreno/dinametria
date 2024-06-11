@@ -13,6 +13,7 @@ import {
   Legend,
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import Spinner from '../Sipnner/Spinner'
 
 interface IHistoryChart {
   uuid: string
@@ -33,6 +34,7 @@ const HistoryChart = ({
   uuid,
   coinName
 }:IHistoryChart) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [prices, setPrices] = useState<IHistoryPrice>({
     status: '',
     data: {
@@ -45,12 +47,15 @@ const HistoryChart = ({
   })
 
   useEffect(() => {
+    setIsLoading(true)
     insecureFetchFromAPI(REQUESTS_API_URL.getHistoryPrice.replace(':uuid', uuid)).then((response) => {
       if (response.status === 'success') {
         setPrices(response)
+        setIsLoading(false)
       }
     }).catch(error => {
       console.error(error)
+      setIsLoading(false)
     })
   }, [])
 
@@ -79,7 +84,10 @@ const HistoryChart = ({
   
   return (
     <>
-      <Line options={options} data={data} />
+      {isLoading ?
+        <Spinner /> :
+        <Line options={options} data={data} />
+      }
     </>
   )
 }

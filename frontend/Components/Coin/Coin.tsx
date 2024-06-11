@@ -5,16 +5,18 @@ interface ICoin {
   iconUrl: string
   name: string
   symbol: string
+  uuid: string
 }
 
 const Coin = ({
   iconUrl,
   name,
   symbol,
+  uuid
 }:ICoin) => {
   return (
     <S.CoinContainer
-      href={`/detail/${name}`}
+      href={`/detail/${uuid}`}
       target='_blank'
       rel='noreferrer'
     >
