@@ -23,6 +23,7 @@ const Trending = ({ title, data }: ITrending) => {
                 symbol={coin.symbol}
                 name={coin.name}
                 iconUrl={coin.iconUrl}
+                uuid={coin.uuid}
               />
             </React.Fragment>
           ))
