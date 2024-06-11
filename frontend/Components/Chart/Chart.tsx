@@ -83,12 +83,12 @@ const HistoryChart = ({
 
   
   return (
-    <>
+    <div>
       {isLoading ?
         <Spinner /> :
         <Line options={options} data={data} />
       }
-    </>
+    </div>
   )
 }
 

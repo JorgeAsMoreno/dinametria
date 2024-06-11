@@ -44,7 +44,11 @@ const Icon = styled.img`
 
 const Name = styled.h3`
   color: #002358;
-  font-size: 2.275em;
+  font-size: 1.5em;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 2.275em;
+  }
 `
 
 const Symbol = styled.p`
@@ -105,6 +109,7 @@ const Change = styled.p<{
   color: ${(props) => props.change < 0 ? '#ea3943' : '#16c784'};
   font-size: 1em;
   margin-left: .5em;
+  position: relative;
 `
 
 export default {
