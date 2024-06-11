@@ -8,8 +8,8 @@ export interface ICoin {
 
 export interface ICoinsResponse {
   data: {
-    bestCoins: ICoin
-    newestCoins: ICoin
+    bestCoins: ICoin[]
+    newestCoins: ICoin[]
     totalCoins: number
   }
   status: string

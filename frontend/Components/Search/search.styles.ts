@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const Wrapper = styled.div`
   border: 1px solid #cee1ff;

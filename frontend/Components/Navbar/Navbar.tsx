@@ -8,7 +8,6 @@ import { ICoin } from '@/types/suggestions'
 
 const Navbar = () => {
   const [inputValue, setInputValue] = useState<string>('')
-  const [hideSuggestions, setHideSuggestions] = useState<boolean>(false)
   const [suggestions, setSuggestions] = useState<ICoin[]>([{
     name: '',
     price: 0,
@@ -17,16 +16,13 @@ const Navbar = () => {
     symbol: ''
   }])
 
-  useEffect(() => {
-    insecureFetchFromAPI(REQUESTS_API_URL.getCoinSuggestion.replace(':suggestion', inputValue)).then(response => {
+  const handleChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value)
+    insecureFetchFromAPI(REQUESTS_API_URL.getCoinSuggestion.replace(':suggestion', event.target.value)).then(response => {
       setSuggestions(response.data.coins)
     }).catch(error => {
       console.error(error)
     })
-  }, [inputValue])
-
-  const handleChangeInputValue = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value)
   }
 
   return (

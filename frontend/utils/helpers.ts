@@ -4,7 +4,7 @@ export function checkStatus(resp: AxiosResponse) {
   if (resp.status >= 200 && resp.status < 300) {
     return resp.data
   } else {
-    throw new Error(`HTTP Error: ${resp.status} - ${resp.statusText}`);
+    throw new Error(`HTTP Error: ${resp.status} - ${resp.statusText}`)
   }
 }
 
@@ -12,7 +12,7 @@ export const formatNumber = (number: number) => {
   return new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-  }).format(number);
+  }).format(number)
 }
 
 export const formatNumberQuantity = (number: number) => {

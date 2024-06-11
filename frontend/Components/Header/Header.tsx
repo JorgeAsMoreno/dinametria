@@ -1,49 +1,45 @@
 import React, { useEffect, useState } from 'react'
+import { ICoinsResponse } from '@/types/coins'
 import { insecureFetchFromAPI } from '@/requests/api'
+import { REQUESTS_API_URL, REQUEST_API_STATUS } from '../../utils/constants'
 import S from './header.styles'
-import { REQUESTS_API_URL } from '../../utils/constants'
 import Trending from '../Trending/Trending'
 import Container from '../Container/Container'
-import { ICoinsResponse } from '@/types/coins'
 
 const Header = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [statsData, setStatsData] = useState<ICoinsResponse>({
     data: {
-      newestCoins: {
+      newestCoins: [{
         iconUrl: '',
         name: '',
         uuid: '',
         coinrankingUrl: '',
         symbol: ''
-      },
-      bestCoins: {
+      }],
+      bestCoins: [{
         iconUrl: '',
         name: '',
         uuid: '',
         coinrankingUrl: '',
         symbol: ''
-      },
+      }],
       totalCoins: 0
     },
     status: ''
   })
 
   useEffect(() => {
-    setIsLoading(true)
     insecureFetchFromAPI(REQUESTS_API_URL.getStats).then((response) => {
-      if (response.status === 'success') {
+      if (response.status === REQUEST_API_STATUS.SUCCESS) {
         setStatsData(response)
-        setIsLoading(false)
       }
     }).catch(((error) => {
       console.error(error)
-      setIsLoading(false)
     }))
   }, [])
 
   return (
-    <Container>
+    <div>
       <S.Header>
         <Trending
           data={statsData.data.bestCoins}
@@ -53,8 +49,8 @@ const Header = () => {
           data={statsData.data.newestCoins}
           title='Newest Coins'
         />
-      </S.Header>    
-    </Container>
+      </S.Header>
+    </div>
   )
 }
 

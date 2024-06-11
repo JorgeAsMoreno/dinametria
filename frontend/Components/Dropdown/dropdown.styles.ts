@@ -1,12 +1,8 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-const Dropdown = styled.div`
+const Dropdown = styled.div``
 
-`
-
-const Title = styled.p`
-
-`
+const Title = styled.p``
 
 const DropdownOptions = styled.div`
   position: absolute;

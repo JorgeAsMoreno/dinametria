@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const Title = styled.h3`
   color: #000;
@@ -21,11 +21,9 @@ const Wrapper = styled.div`
   padding: 2em 1em;
 `
 
-
 const Contents = styled.div`
   display: flex;
 `
-
 
 export default {
   Title,

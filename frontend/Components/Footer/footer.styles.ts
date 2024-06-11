@@ -6,6 +6,7 @@ const Footer = styled.footer`
   padding: 2em;
   justify-content: center;
   background: #214a88;
+  margin-top: 2em;
 `
 
 const Copy = styled.p`

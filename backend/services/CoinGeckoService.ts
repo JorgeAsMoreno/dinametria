@@ -1,4 +1,4 @@
-import CoinGeckoApiClient from "../clients/CoinGeckoApiClient";
+import CoinGeckoApiClient from "../clients/CoinGeckoApiClient"
 
 class CoinGeckoService {
   public async getCoinDetail(
@@ -15,13 +15,6 @@ class CoinGeckoService {
   ): Promise<any> {
     try {
       return await CoinGeckoApiClient.getCoinHistoryChart(uuid)
-    } catch (error) {
-      return Promise.reject(error)
-    }
-  }
-  public async getTrending(): Promise<any> {
-    try {
-      return await CoinGeckoApiClient.getTrending()
     } catch (error) {
       return Promise.reject(error)
     }
@@ -47,13 +40,6 @@ class CoinGeckoService {
       return await CoinGeckoApiClient.getCoinSuggestion(
         query
       )
-    } catch (error) {
-      return Promise.reject(error)
-    }
-  }
-  public async getMarkets(): Promise<any> {
-    try {
-      return await CoinGeckoApiClient.getMarkets()
     } catch (error) {
       return Promise.reject(error)
     }

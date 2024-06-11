@@ -1,16 +1,16 @@
 import React, { useEffect, useState, useMemo } from 'react'
-import Container from '../Container/Container'
-import S from './tablecoins.styles'
-import { insecureFetchFromAPI } from '@/requests/api'
-import { REQUESTS_API_URL } from '../../utils/constants'
 import { ICoins, ICoinsList } from '@/types/coins'
-import { IoMdTrendingDown, IoMdTrendingUp } from 'react-icons/io'
+import { insecureFetchFromAPI } from '@/requests/api'
+import { REQUESTS_API_URL, REQUEST_API_STATUS } from '../../utils/constants'
 import { useViewMobile } from '../../hooks/useViewMobile'
+import { IoMdTrendingDown, IoMdTrendingUp } from 'react-icons/io'
 import { formatNumber, formatNumberQuantity } from '../../utils/helpers'
-import Dropdown from '../Dropdown/Dropdown'
-import Search from '../Search/Search'
 import Link from 'next/link'
+import S from './tablecoins.styles'
+import Search from '../Search/Search'
 import Spinner from '../Sipnner/Spinner'
+import Dropdown from '../Dropdown/Dropdown'
+import Container from '../Container/Container'
 
 const TableCoins = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false)
@@ -50,7 +50,7 @@ const TableCoins = () => {
   useEffect(() => {
     setIsLoading(true)
     insecureFetchFromAPI(REQUESTS_API_URL.getCoins.replace(':orderBy', selectedFilterOption)).then(response => {
-      if (response.status === 'success') {
+      if (response.status === REQUEST_API_STATUS.SUCCESS) {
         setCoins(response)
         setIsLoading(false)
       }
@@ -75,9 +75,9 @@ const TableCoins = () => {
   if (isLoading) {
     return <Spinner />
   }
-  
+
   return (
-   <Container>
+   <div>
       <S.TableControls>
         <S.Search>
           <p>All coins</p>
@@ -108,57 +108,47 @@ const TableCoins = () => {
         </S.Thead>
         <S.Tbody>
           {filteredList.map(coin => (
-            <Link
-              target='_blank'
-              style={{textDecoration: 'none'}}
-              rel='noreferrer'
-              href={`/detail/${coin.uuid}`
-            }
+            <tr
+              key={coin.uuid}
+              onClick={() => window.open(`/detail/${coin.uuid}`, '_blank')}
+              style={{ cursor: 'pointer' }}
             >
-              <tr key={coin.uuid}>
-                <td>{coin.rank}</td>
-                <td>
-                  {isMobile ?
-                    coin.symbol :
-                    <S.CoinInfo>
-                      <S.Icon
-                        alt={coin.name}
-                        aria-label={coin.name}
-                        src={coin.iconUrl}
-                      />
-                      {coin.name}
-                      <S.Symbol>
-                        ({coin.symbol})
-                      </S.Symbol>
-                    </S.CoinInfo>
-                  }
-                </td>
-                <td>{formatNumber(coin.price)}</td>
-                {
-                  !isMobile &&
-                  <td>{formatNumberQuantity(coin.marketCap)}</td>
-                }
-                <td
-                  style={{
-                    color: coin.change < 0 ? '#ea3943' : '#16c784',
-                  }}
-                > 
-                  <span style={{
-                    marginRight: '.5em'
-                  }}>
-                    {coin.change < 0 ? <IoMdTrendingDown /> : <IoMdTrendingUp />}
-                  </span>
-                  {coin.change}
-                </td>
-              </tr>
-            </Link>
+              <td>{coin.rank}</td>
+              <td>
+                {isMobile ? (
+                  coin.symbol
+                ) : (
+                  <S.CoinInfo>
+                    <S.Icon
+                      alt={coin.name}
+                      aria-label={coin.name}
+                      src={coin.iconUrl}
+                    />
+                    {coin.name}
+                    <S.Symbol>({coin.symbol})</S.Symbol>
+                  </S.CoinInfo>
+                )}
+              </td>
+              <td>{formatNumber(coin.price)}</td>
+              {!isMobile && <td>{formatNumberQuantity(coin.marketCap)}</td>}
+              <td
+                style={{
+                  color: coin.change < 0 ? '#ea3943' : '#16c784',
+                }}
+              >
+                <span style={{ marginRight: '.5em' }}>
+                  {coin.change < 0 ? <IoMdTrendingDown /> : <IoMdTrendingUp />}
+                </span>
+                {coin.change}
+              </td>
+            </tr>
           ))}
         </S.Tbody>
       </S.Table>{
         filteredList.length === 0 &&
         <S.Empty>No hay resultados para tu busqueda...</S.Empty>
       }
-    </Container>   
+    </div>   
   )
 }
 
