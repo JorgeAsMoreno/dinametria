@@ -1,6 +1,12 @@
-export interface IChart {
-  market_caps: Array<number[]>
-  prices: Array<number[]>
-  total_volumes: Array<number[]>
+export interface IHistoryPrice {
+  status: string
+  data: {
+    change: number
+    history: [
+      {
+        price: number
+        timestamp: number
+      }
+    ]
+  }
 }
- 
