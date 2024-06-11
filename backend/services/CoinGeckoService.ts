@@ -35,9 +35,11 @@ class CoinGeckoService {
       return Promise.reject(error)
     }
   }
-  public async getCoinList(): Promise<any> {
+  public async getCoinList(orderBy: string): Promise<any> {
     try {
-      return await CoinGeckoApiClient.getCoinList()
+      return await CoinGeckoApiClient.getCoinList(
+        orderBy
+      )
     } catch (error) {
       return Promise.reject(error)
     }
